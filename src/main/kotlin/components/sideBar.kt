@@ -46,11 +46,6 @@ private object SidebarStyles: StyleSheet("sidebar", isStatic = true) {
         }
     }
 
-    val navlinkActive by css {
-        borderLeft(LinearDimension("thick"), BorderStyle.solid, DeezerColors.mainFlatPink)
-        color = DeezerColors.mainFlatPink
-    }
-
     val navlinkPrimary by css {
         +navlink
 
@@ -65,6 +60,12 @@ private object SidebarStyles: StyleSheet("sidebar", isStatic = true) {
         color = DeezerColors.mainFlatGrey
         fontSize = LinearDimension("larger")
         paddingLeft = 3.5.rem
+    }
+
+    val navlinkActive by css {
+        borderLeft(LinearDimension("thick"), BorderStyle.solid, DeezerColors.mainFlatPink)
+        color = DeezerColors.mainFlatPink
+        padding(0.25.rem, 1.5.rem, 0.25.rem, 1.5.rem - 5.px)
     }
 
     val navlist by css {
