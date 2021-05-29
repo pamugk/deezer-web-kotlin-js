@@ -45,6 +45,7 @@ private object AppStyleSheet: StyleSheet("app", isStatic = true) {
     val footer by css {
         backgroundColor = Color.inherit
         borderTop(LinearDimension("thin"), BorderStyle.solid, DeezerColors.mainFlatGrey)
+        display = Display.flex
         fontSize = LinearDimension("larger")
 
         gridColumnStart = GridColumnStart("1")
@@ -101,9 +102,11 @@ private val app = functionalComponent<RProps> {
             }
         }
     }
-    styledFooter {
-        css { +AppStyleSheet.footer }
-        player()
+    if (false) {
+        styledFooter {
+            css { +AppStyleSheet.footer }
+            player()
+        }
     }
 }
 

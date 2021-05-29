@@ -11,8 +11,8 @@ fun main() {
             CSSBuilder().apply {
                 backgroundColor = Color.white
                 display = Display.grid
-                gridTemplateColumns = GridTemplateColumns("${GridTemplateColumns.maxContent} ${GridTemplateColumns.auto}")
-                gridTemplateRows = GridTemplateRows("${GridTemplateColumns.minContent} ${GridTemplateColumns.auto} ${GridTemplateColumns.minContent}")
+                gridTemplateColumns = GridTemplateColumns(GridAutoRows.minContent, GridAutoRows.auto)
+                gridTemplateRows = GridTemplateRows(GridAutoRows.minContent, GridAutoRows.auto, GridAutoRows.minContent)
             }
         }}")
         render(document.getElementById("root")) {
