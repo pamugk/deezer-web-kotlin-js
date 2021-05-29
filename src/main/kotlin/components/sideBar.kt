@@ -86,6 +86,7 @@ private object SidebarStyles: StyleSheet("sidebar", isStatic = true) {
 
     val navitem by css {
         margin(1.5.rem, LinearDimension("0"))
+        width = LinearDimension.maxContent
     }
 }
 
