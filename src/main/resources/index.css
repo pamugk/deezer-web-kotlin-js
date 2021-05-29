@@ -1,0 +1,98 @@
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Black.woff2);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Black.woff);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Bold.woff2);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Bold.woff);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Light.woff2);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Light.woff);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Medium.woff2);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Medium.woff);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Regular.woff2);
+}
+
+@font-face {
+    font-family: MabryDeezer;
+    src: url(assets/deezer/fonts/MabryDeezer/Web/MabryDeezer-Regular.woff);
+}
+
+@font-face {
+    font-family: NotoSansArabic;
+    src: url(assets/deezer/fonts/NotoSansArabic/NotoSansArabic-Bold.ttf);
+}
+
+@font-face {
+    font-family: NotoSansArabic;
+    src: url(assets/deezer/fonts/NotoSansArabic/NotoSansArabic-Medium.ttf);
+}
+
+@font-face {
+    font-family: NotoSansHebrew;
+    src: url(assets/deezer/fonts/NotoSansHebrew/NotoSansHebrew-Bold.ttf);
+}
+
+@font-face {
+    font-family: NotoSansHebrew;
+    src: url(assets/deezer/fonts/NotoSansHebrew/NotoSansHebrew-Medium.ttf);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(assets/deezer/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    align-content: stretch;
+    align-items: stretch;
+    box-sizing: border-box;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    font-family: MabryDeezer, NotoSansArabic, NotoSansHebrew, Roboto, serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+#sc-global-styles {
+    display: none;
+}

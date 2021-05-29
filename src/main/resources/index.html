@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Deezer unofficial Angular client</title>
+    <title>Deezer unofficial React client</title>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="https://cdns-files.dzcdn.net/cache/images/common/favicon/favicon.a6a53d55264841165a904dbea19d5d73.ico">
+    <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/651c751461.js" crossorigin="anonymous"></script>
+    <script defer src="deezer-web-kotlin-js.js"></script>
 </head>
-<body>
-<script src="deezer-web-kotlin-js.js"></script>
-<div id="root">
-    <noscript>Для работы данного приложения необходимо включить JavaScript</noscript>
-    <style>.temp-content {display: flex;align-items: center;justify-content: center;height: 100%;flex-direction: column;}.loader {border: 16px solid #72727D;border-top: 16px solid #D81B60;border-radius: 50%;width: 120px;height: 120px;animation: spin 2s linear infinite;}@keyframes spin {0% { transform: rotate(0deg); }100% { transform: rotate(360deg); }}</style><div class="temp-content"><div class="loader"></div><span>Приложение загружается...</span></div>
-</div>
+<body id="root">
+<noscript>Для работы данного приложения необходимо включить JavaScript</noscript>
+<link rel="stylesheet" href="temp.css">
+<div class="temp-content"><div class="loader"></div><span>Приложение загружается...</span>
 </body>
 </html>
