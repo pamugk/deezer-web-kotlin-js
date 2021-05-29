@@ -1,12 +1,7 @@
 package pages
 
-import IdProps
-import react.RBuilder
-import react.child
+import common.IdProps
 import react.functionalComponent
+import react.router.dom.RouteResultProps
 
-val album = functionalComponent<IdProps> {  }
-
-inline fun RBuilder.album(crossinline handler: IdProps.() -> Unit) = child(album) {
-    attrs.handler()
-}
+val album = functionalComponent<RouteResultProps<IdProps>> {  }

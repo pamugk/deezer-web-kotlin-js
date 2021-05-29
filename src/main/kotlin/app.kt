@@ -20,14 +20,6 @@ import react.router.dom.switch
 import react.router.dom.withRouter
 import styled.*
 
-interface IdProps: RProps {
-    val id: Int
-}
-
-interface SearchProps: RProps {
-    val query: String
-}
-
 private object AppStyleSheet: StyleSheet("app", isStatic = true) {
     val content by css {
         backgroundColor = Color.inherit
@@ -94,50 +86,16 @@ private val app = functionalComponent<RProps> {
     styledMain {
         css { +AppStyleSheet.content }
         switch {
-            route("/", exact = true) {
-                home()
-            }
-            route("/account", exact = true) {
-                account()
-            }
-            route<IdProps>("/album/:id") {
-                album {
-
-                }
-            }
-            route<IdProps>("/artist/:id") {
-                artist {
-
-                }
-            }
-            route("/channels") {
-                channels()
-            }
-            route<IdProps>("/playlist/:id") {
-                playlist {
-
-                }
-            }
-            route("/podcasts", exact = true) {
-                podcasts()
-            }
-            route("/profile") {
-                profile {
-
-                }
-            }
-            route<SearchProps>("/search/:query") { props ->
-                search {
-                    history = props.history
-                    location = props.location
-                    match = props.match
-                }
-            }
-            route<IdProps>("/show/:id") {
-                show {
-
-                }
-            }
+            route<RProps>("/", exact = true, render = home)
+            route<RProps>("/account", render = account)
+            route("/album/:id", render = album)
+            route("/artist/:id", render = artist)
+            route<RProps>("/channels", render = channels)
+            route("/playlist/:id", render = playlist)
+            route<RProps>("/podcasts", exact = true, render = podcasts)
+            route("/profile", render = profile)
+            route("/search/:query", render = search)
+            route("/show/:id", render = show)
             route("*") {
                 notFound()
             }

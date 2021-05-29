@@ -46,6 +46,12 @@ private object SidebarStyles: StyleSheet("sidebar", isStatic = true) {
         }
     }
 
+    val navlinkContent by css {
+        i {
+            paddingRight = 1.rem
+        }
+    }
+
     val navlinkPrimary by css {
         +navlink
 
@@ -100,27 +106,30 @@ fun RBuilder.sideBar() {
         styledLi {
             css { +SidebarStyles.navitem }
             navLink<RProps>("/", className = primaryNavlinkClass, activeClassName = activeNavlinkClass, exact = true) {
-                span {
+                styledSpan {
+                    css { +SidebarStyles.navlinkContent }
                     i("fas fa-music"){}
-                    +" Музыка"
+                    +"Музыка"
                 }
             }
         }
         styledLi {
             css { +SidebarStyles.navitem }
             navLink<RProps>("/podcasts", className = primaryNavlinkClass, activeClassName = activeNavlinkClass, exact = true) {
-                span {
+                styledSpan {
+                    css { +SidebarStyles.navlinkContent }
                     i("fas fa-microphone"){}
-                    +" Подкасты"
+                    +"Подкасты"
                 }
             }
         }
         styledLi {
             css { +SidebarStyles.navitem }
             navLink<RProps>("/channels/explore", className = primaryNavlinkClass, activeClassName = activeNavlinkClass, exact = true) {
-                span {
+                styledSpan {
+                    css { +SidebarStyles.navlinkContent }
                     i("fas fa-th-large"){}
-                    +" Исследуйте"
+                    +"Исследуйте"
                 }
             }
         }
@@ -128,9 +137,10 @@ fun RBuilder.sideBar() {
             styledLi {
                 css { +SidebarStyles.navitem }
                 navLink<RProps>("/", className = primaryNavlinkClass, activeClassName = activeNavlinkClass) {
-                    span {
+                    styledSpan {
+                        css { +SidebarStyles.navlinkContent }
                         i("fas fa-heart"){}
-                        +" Избранное"
+                        +"Избранное"
                     }
                 }
                 styledUl {

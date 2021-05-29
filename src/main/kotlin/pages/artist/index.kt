@@ -1,8 +1,6 @@
 package pages.artist
 
-import IdProps
-import react.RBuilder
-import react.child
+import common.IdProps
 import react.functionalComponent
 import react.router.dom.RouteResultProps
 import react.router.dom.route
@@ -26,8 +24,4 @@ val artist = functionalComponent<RouteResultProps<IdProps>> { props ->
             topTracks()
         }
     }
-}
-
-inline fun RBuilder.artist(crossinline handler: RouteResultProps<IdProps>.() -> Unit) = child(artist) {
-    attrs.handler()
 }

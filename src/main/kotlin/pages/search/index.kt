@@ -1,8 +1,6 @@
 package pages.search
 
-import SearchProps
-import react.RBuilder
-import react.child
+import common.SearchProps
 import react.functionalComponent
 import react.router.dom.RouteResultProps
 import react.router.dom.redirect
@@ -40,8 +38,4 @@ val search = functionalComponent<RouteResultProps<SearchProps>> { props ->
         }
         redirect(to = props.match.path)
     }
-}
-
-inline fun RBuilder.search(crossinline handler: RouteResultProps<SearchProps>.() -> Unit) = child(search) {
-    attrs.handler()
 }

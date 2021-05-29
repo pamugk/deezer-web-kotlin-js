@@ -1,15 +1,11 @@
 package pages.account
 
-import react.RBuilder
 import react.RProps
-import react.child
 import react.functionalComponent
 import react.router.dom.route
 import react.router.dom.switch
-import react.router.dom.useHistory
-import react.router.dom.useLocation
 
-private val account = functionalComponent<RProps> {
+val account = functionalComponent<RProps> {
     switch {
         route("/account", exact = true) {
             personalData()
@@ -34,5 +30,3 @@ private val account = functionalComponent<RProps> {
         }
     }
 }
-
-fun RBuilder.account() = child(account)

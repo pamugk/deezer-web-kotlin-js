@@ -1,8 +1,6 @@
 package pages.profile
 
-import IdProps
-import react.RBuilder
-import react.child
+import common.IdProps
 import react.functionalComponent
 import react.router.dom.RouteResultProps
 import react.router.dom.redirect
@@ -40,8 +38,4 @@ val profile = functionalComponent<RouteResultProps<IdProps>> { props ->
         }
         redirect(to = props.match.path)
     }
-}
-
-inline fun RBuilder.profile(crossinline handler: RouteResultProps<IdProps>.() -> Unit) = child(profile) {
-    attrs.handler()
 }

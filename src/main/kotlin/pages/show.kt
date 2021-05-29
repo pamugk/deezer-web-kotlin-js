@@ -1,12 +1,7 @@
 package pages
 
-import IdProps
-import react.RBuilder
-import react.child
+import common.IdProps
 import react.functionalComponent
+import react.router.dom.RouteResultProps
 
-val show = functionalComponent<IdProps> {  }
-
-inline fun RBuilder.show(crossinline handler: IdProps.() -> Unit) = child(show) {
-    attrs.handler()
-}
+val show = functionalComponent<RouteResultProps<IdProps>> {  }
