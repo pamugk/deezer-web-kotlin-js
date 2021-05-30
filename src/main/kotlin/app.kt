@@ -17,7 +17,6 @@ import react.child
 import react.functionalComponent
 import react.router.dom.route
 import react.router.dom.switch
-import react.router.dom.withRouter
 import styled.*
 
 private object AppStyleSheet: StyleSheet("app", isStatic = true) {
@@ -82,7 +81,7 @@ private val app = functionalComponent<RProps> {
     }
     styledNav {
         css { +AppStyleSheet.navbar }
-        withRouter(searchBar)
+        searchBar()
     }
     styledMain {
         css { +AppStyleSheet.content }

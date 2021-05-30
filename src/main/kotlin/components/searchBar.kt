@@ -5,11 +5,15 @@ import common.SearchProps
 import kotlinx.css.*
 import kotlinx.html.InputType
 import kotlinx.html.js.onClickFunction
+import kotlinx.html.js.onInputFunction
 import kotlinx.html.js.onKeyUpFunction
+import org.w3c.dom.events.Event
+import react.*
 import react.dom.i
-import react.functionalComponent
-import react.router.dom.RouteResultProps
-import react.useState
+import react.dom.render
+import react.router.dom.redirect
+import react.router.dom.useHistory
+import react.router.dom.useParams
 import styled.*
 import styles.SharedStyles
 
@@ -33,20 +37,45 @@ private object NavbarStyles: StyleSheet("navbar", isStatic = true) {
     }
 }
 
-val searchBar = functionalComponent<RouteResultProps<SearchProps>> { props ->
-    val query by useState(props.match.params.query)
+private fun handleInputChange(e: Event, prevValue: String): String {
+    val event = e.asDynamic().nativeEvent
+    val data = (e.asDynamic().nativeEvent.data as String?).orEmpty()
+
+    val caretPosition: Int = event.target.selectionStart - 1
+
+    return if (data.isEmpty())
+        prevValue.substring(0, caretPosition + 1) + prevValue.substring(caretPosition + 2)
+    else prevValue.substring(0, caretPosition) + data + prevValue.substring(caretPosition)
+}
+
+private fun checkIfEnterPressed(e: Event): Boolean {
+    return e.asDynamic().nativeEvent.key == "Enter"
+}
+
+private val searchBar = functionalComponent<RProps> {
+    val history = useHistory()
+    var query by useState(useParams<SearchProps>()?.query.orEmpty())
 
     styledDiv {
-        css { NavbarStyles.searchbar }
+        css { +NavbarStyles.searchbar }
         styledButton() {
             css { +SharedStyles.iconedButton }
             i("fas fa-search") { }
-            attrs.onClickFunction = { props.history.push("/search/$query") }
-            attrs.disabled = query.isEmpty()
+            attrs.onClickFunction = {
+                if (query.isNotBlank())
+                    history.push("/search/$query")
+            }
+            attrs.disabled = query.isBlank()
         }
         styledInput(InputType.search) {
-            css { NavbarStyles.searchfield }
-            attrs.onKeyUpFunction = {  }
+            css { +NavbarStyles.searchfield }
+            attrs.onKeyUpFunction = {
+                if (checkIfEnterPressed(it) and query.isNotBlank())
+                    history.push("/search/$query")
+            }
+            attrs.onInputFunction = {
+                query = handleInputChange(it, query)
+            }
             attrs.placeholder = "Поиск"
             attrs.value = query
         }
@@ -54,7 +83,7 @@ val searchBar = functionalComponent<RouteResultProps<SearchProps>> { props ->
             styledButton {
                 css { +SharedStyles.iconedButton }
                 i("fas fa-times-circle") { }
-                attrs.onClickFunction = {  }
+                attrs.onClickFunction = { query = "" }
             }
         }
     }
@@ -74,3 +103,5 @@ val searchBar = functionalComponent<RouteResultProps<SearchProps>> { props ->
         }
     }
 }
+
+fun RBuilder.searchBar() = child(searchBar)
