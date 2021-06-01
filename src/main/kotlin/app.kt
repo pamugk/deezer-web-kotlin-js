@@ -1,3 +1,4 @@
+import common.SearchProps
 import components.player
 import components.searchBar
 import components.sideBar
@@ -10,7 +11,7 @@ import pages.*
 import pages.account.account
 import pages.artist.artist
 import pages.profile.profile
-import pages.search.search
+import pages.search.searchPage
 import react.RBuilder
 import react.RProps
 import react.child
@@ -94,7 +95,13 @@ private val app = functionalComponent<RProps> {
             route("/playlist/:id", render = playlist)
             route<RProps>("/podcasts", exact = true, render = podcasts)
             route("/profile", render = profile)
-            route("/search/:query", render = search)
+            route<SearchProps>("/search/:query") { props ->
+                searchPage {
+                    history = props.history
+                    location = props.location
+                    match = props.match
+                }
+            }
             route("/show/:id", render = show)
             route("*") {
                 notFound()
